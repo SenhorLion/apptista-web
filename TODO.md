@@ -1,0 +1,10 @@
+- [ ] Lesson calendar view, add link to show modal with lesson information
+- [ ] Use IndexedDB (via a Thin Wrapper) - Best Option: Dexie.js
+- [ ] Monetisation Strategy\*
+- [x] Add monthly payment option, e.g. Karate is paid monthly, €24 p/m. This should be reflected in both lesson creation and in lesson view
+- [x] Enable filter functionality in lesson view
+- [x] Lesson calendar view, Not all scheduled lessons show
+- [x] Add recurring event for all lessons, with ability to edit individually
+- [x] On organisation page, add link to lesson view for that organisation
+- [x] On Organisation page, add delete organisation button: show modal to confirm first
+- [x] Change filter highlight to slate / gray

@@ -1,0 +1,294 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* 
+  Apptista Theme
+  Dark-first, clean, technical, slightly playful.
+  Works with Tailwind v4 theme tokens.
+*/
+
+/* @theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-geist);
+  --font-mono: var(--font-jetbrains-mono);
+} */
+
+@theme {
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Geist', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Base spacing scale */
+  --spacing: 4px;
+
+  /* Breakpoints */
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 96rem;
+
+  /* Radius */
+  --radius-xs: 0.375rem; /* 6px */
+  --radius-sm: 0.5rem; /* 8px */
+  --radius-md: 0.625rem; /* 10px */
+  --radius-lg: 0.875rem; /* 14px */
+  --radius-xl: 1.25rem; /* 20px */
+  --radius-2xl: 1.5rem;
+
+  /* Brand / surfaces */
+  --color-bg-primary: #0b0f14;
+  --color-bg-secondary: #11161d;
+  --color-bg-tertiary: #161c23;
+  --color-bg-elevated: #1b222b;
+
+  --color-border-subtle: #1a212a;
+  --color-border: #222a33;
+  --color-border-strong: #2d3742;
+
+  /* Text */
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #9da7b3;
+  --color-text-muted: #6b7785;
+  --color-text-inverse: #0b0f14;
+
+  /* Brand accent */
+  --color-accent: #6366f1;
+  --color-accent-hover: #7c7ff5;
+  --color-accent-active: #4f52d6;
+  --color-accent-soft: #1d2148;
+  --color-accent-foreground: #ffffff;
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-success-soft: #13261a;
+
+  --color-warning: #f59e0b;
+  --color-warning-soft: #2b2110;
+
+  --color-error: #ef4444;
+  --color-error-soft: #2d1719;
+
+  --color-info: #3b82f6;
+  --color-info-soft: #13233e;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.16);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 30px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 50px rgb(0 0 0 / 0.5);
+
+  /* Optional app-specific aliases for cleaner class names */
+  --color-surface-1: var(--color-bg-primary);
+  --color-surface-2: var(--color-bg-secondary);
+  --color-surface-3: var(--color-bg-tertiary);
+
+  /* Motion */
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  --animate-fade-in: fade-in 220ms var(--ease-fluid);
+  --animate-rise-in: rise-in 260ms var(--ease-fluid);
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes rise-in {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 
+  Semantic CSS variables for hand-written components and shadcn-style usage.
+  This gives you both Tailwind utility tokens and plain CSS variables.
+*/
+:root {
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
+
+  --card: var(--color-bg-secondary);
+  --card-foreground: var(--color-text-primary);
+
+  --popover: var(--color-bg-elevated);
+  --popover-foreground: var(--color-text-primary);
+
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-accent-foreground);
+
+  --secondary: var(--color-bg-tertiary);
+  --secondary-foreground: var(--color-text-primary);
+
+  --muted: var(--color-bg-tertiary);
+  --muted-foreground: var(--color-text-secondary);
+
+  --accent: var(--color-accent-soft);
+  --accent-foreground: var(--color-text-primary);
+
+  --destructive: var(--color-error);
+  --destructive-foreground: #ffffff;
+
+  --success: var(--color-success);
+  --success-foreground: #ffffff;
+
+  --warning: var(--color-warning);
+  --warning-foreground: #111111;
+
+  --border: var(--color-border);
+  --input: var(--color-border);
+  --ring: var(--color-accent);
+
+  --radius: 0.875rem;
+}
+
+/* Base layer */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+    color: var(--color-text-primary);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 3vw, 3rem);
+    line-height: 1;
+    font-weight: 650;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.1;
+    font-weight: 600;
+  }
+
+  p {
+    color: var(--color-text-secondary);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* Handy component classes */
+@layer components {
+  .app-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .app-card {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .app-button {
+    @apply inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap transition-all;
+    min-height: 2.5rem;
+    padding-inline: 1rem;
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .app-button:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .app-button:active {
+    background: var(--color-accent-active);
+    transform: translateY(1px);
+  }
+
+  .app-button-secondary {
+    @apply inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap transition-all;
+    min-height: 2.5rem;
+    padding-inline: 1rem;
+    border-radius: var(--radius-md);
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border: 1px solid var(--border);
+  }
+
+  .app-input {
+    @apply w-full;
+    min-height: 2.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--input);
+    background: var(--color-bg-tertiary);
+    color: var(--foreground);
+    padding-inline: 0.875rem;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .app-input:focus {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 25%, transparent);
+  }
+
+  .app-section {
+    @apply py-16 md:py-24;
+  }
+
+  .app-eyebrow {
+    @apply text-sm font-medium tracking-[0.14em] uppercase;
+    color: var(--color-accent-hover);
+  }
+
+  .app-muted {
+    color: var(--color-text-muted);
+  }
+
+  .app-grid {
+    @apply grid gap-6 md:gap-8;
+  }
+}

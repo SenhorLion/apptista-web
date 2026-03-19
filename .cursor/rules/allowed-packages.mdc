@@ -1,0 +1,128 @@
+# Allowed Packages and Usage Guidelines
+
+## Core Framework & Runtime
+
+- **next**: React framework for production - use for server-side rendering, static generation, and API routes
+- **react**: UI library - use for building component-based user interfaces
+- **react-dom**: React rendering for web - use for DOM manipulation and hydration
+
+## Database & ORM
+
+- **@prisma/client**: Type-safe database client - use for database queries with full TypeScript support
+- **prisma**: Database toolkit - use for schema management, migrations, and database introspection
+
+## Authentication & Security
+
+- **@node-rs/argon2**: Fast Argon2 password hashing - use for secure password storage and verification
+- **@oslojs/crypto**: Cryptographic utilities - use for secure random generation and encryption
+- **@oslojs/encoding**: Encoding utilities - use for base64, hex, and other encoding operations
+- **@zxcvbn-ts/core**: Password strength estimation - use for real-time password strength feedback
+- **zxcvbn**: Password strength library - use for comprehensive password analysis
+
+## UI Components & Styling
+
+- **@radix-ui/react-alert-dialog**: Accessible alert dialogs - use for confirmation modals and destructive actions
+- **@radix-ui/react-avatar**: Accessible avatar component - use for user profile pictures and initials
+- **@radix-ui/react-dropdown-menu**: Accessible dropdown menus - use for navigation and action menus
+- **@radix-ui/react-label**: Accessible form labels - use for form field labeling with proper accessibility
+- **@radix-ui/react-popover**: Accessible popover component - use for contextual information and tooltips
+- **@radix-ui/react-select**: Accessible select component - use for dropdown selection with keyboard navigation
+- **@radix-ui/react-separator**: Accessible separator component - use for visual dividers and section breaks
+- **@radix-ui/react-slot**: Component slot utility - use for component composition and prop forwarding
+- **@radix-ui/react-tabs**: Accessible tabs component - use for tabbed interfaces and navigation
+- **class-variance-authority**: Component variant management - use for creating flexible component APIs
+- **clsx**: Conditional className utility - use for dynamic CSS class composition
+- **tailwind-merge**: Tailwind class merging - use for combining Tailwind classes without conflicts
+- **tailwindcss-animate**: Tailwind animations - use for smooth transitions and micro-interactions
+
+## State Management & Data Fetching
+
+- **@tanstack/react-query**: Server state management - use for caching, synchronization, and background updates
+- **@tanstack/react-query-devtools**: React Query dev tools - use for debugging and monitoring queries
+
+## Form Handling & Validation
+
+- **zod**: TypeScript-first schema validation - use for runtime type checking and form validation
+
+## Date & Time
+
+- **date-fns**: Date utility library - use for date manipulation, formatting, and calculations
+- **react-day-picker**: Date picker component - use for date selection in forms
+
+## Email & Communication
+
+- **@react-email/components**: Email template components - use for building transactional email templates
+- **resend**: Email delivery service - use for sending transactional emails
+
+## Background Jobs & Scheduling
+
+- **inngest**: Background job processing - use for handling async tasks and scheduled operations
+
+## UI Utilities & Interactions
+
+- **lucide-react**: Icon library - use for consistent iconography throughout the app
+- **react-intersection-observer**: Intersection observer hook - use for lazy loading and scroll-based animations
+- **sonner**: Toast notifications - use for user feedback and system messages
+
+## URL & Search Management
+
+- **nuqs**: URL search params management - use for syncing state with URL parameters
+
+## Mathematical Operations
+
+- **big.js**: Decimal arithmetic library - use for precise financial calculations and currency handling
+- **@types/big.js**: TypeScript types for big.js
+
+## String & Text Processing
+
+- **fastest-levenshtein**: Fast string similarity - use for fuzzy search and text matching
+
+## Theme Management
+
+- **next-themes**: Theme switching - use for dark/light mode support
+
+## Performance & Optimization
+
+- **use-debounce**: Debounced values hook - use for search inputs and expensive operations
+
+## Development Tools
+
+- **@types/node**: Node.js TypeScript types
+- **@types/react**: React TypeScript types
+- **@types/react-dom**: React DOM TypeScript types
+- **@types/zxcvbn**: Zxcvbn TypeScript types
+- **eslint**: Code linting - use for maintaining code quality and consistency
+- **eslint-config-next**: Next.js ESLint configuration
+- **eslint-plugin-simple-import-sort**: Import sorting - use for consistent import organization
+- **prettier**: Code formatting - use for consistent code style
+- **prettier-plugin-tailwindcss**: Tailwind class sorting - use for organized Tailwind classes
+- **react-email**: Email development - use for previewing email templates locally
+- **tailwindcss**: Utility-first CSS framework - use for rapid UI development
+- **tsx**: TypeScript execution - use for running TypeScript files directly
+- **tw-animate-css**: Tailwind animation utilities - use for additional animation classes
+- **typescript**: TypeScript compiler - use for type checking and compilation
+
+## Build & Development
+
+- **@eslint/eslintrc**: ESLint configuration utilities
+- **@tailwindcss/postcss**: Tailwind PostCSS plugin
+- **@types/big.js**: TypeScript definitions for big.js
+
+## Package Management
+
+- **package-lock.json**: Locked dependency versions for reproducible builds
+- **overrides**: Package version overrides for dependency resolution
+
+## Usage Guidelines
+
+- Prefer existing packages over adding new dependencies
+- Use TypeScript-first solutions when available
+- Prioritize accessibility and performance
+- Follow the principle of least privilege for security packages
+- Use development dependencies only for build-time tools
+- Maintain consistent versioning across related packages
+  description:
+  globs:
+  alwaysApply: false
+
+---
