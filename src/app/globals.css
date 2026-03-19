@@ -65,10 +65,10 @@
   --color-accent-active: #16A34A;
   --color-accent-soft: #13261a;
   */
-  --color-accent: #06B6D4;
-  --color-accent-hover: #22D3EE;
-  --color-accent-active: #0891B2;
-  --color-accent-soft: #062C33;
+  --color-accent: #06b6d4;
+  --color-accent-hover: #22d3ee;
+  --color-accent-active: #0891b2;
+  --color-accent-soft: #062c33;
   --color-accent-foreground: #ffffff;
 
   /* Semantic */
@@ -244,21 +244,63 @@
   }
 
   .app-button {
-    @apply inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap transition-all;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 font-medium whitespace-nowrap transition-all;
     min-height: 2.5rem;
     padding-inline: 1rem;
     border-radius: var(--radius-md);
-    background: var(--primary);
+    /* NuPhy Air 75 inspired: subtle tri-color gradient + gentle glow */
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--color-accent) 90%, var(--color-accent-soft) 10%),
+      color-mix(
+        in oklab,
+        var(--color-accent-hover) 60%,
+        var(--color-warning) 22%,
+        var(--color-accent-soft) 18%
+      ),
+      color-mix(in oklab, var(--color-success) 22%, var(--color-accent-soft) 78%)
+    );
     color: var(--primary-foreground);
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+      var(--shadow-sm),
+      0 0 0 1px color-mix(in oklab, var(--color-accent) 18%, transparent),
+      0 0 28px color-mix(in oklab, var(--color-accent) 30%, transparent);
   }
 
   .app-button:hover {
-    background: var(--color-accent-hover);
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--color-accent-hover) 88%, var(--color-accent-soft) 12%),
+      color-mix(
+        in oklab,
+        var(--color-accent-hover) 58%,
+        var(--color-warning) 24%,
+        var(--color-accent-soft) 18%
+      ),
+      color-mix(in oklab, var(--color-success) 26%, var(--color-accent-soft) 74%)
+    );
+    box-shadow:
+      var(--shadow-sm),
+      0 0 0 1px color-mix(in oklab, var(--color-accent-hover) 22%, transparent),
+      0 0 42px color-mix(in oklab, var(--color-accent-hover) 35%, transparent);
   }
 
   .app-button:active {
-    background: var(--color-accent-active);
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--color-accent-active) 80%, var(--color-accent-soft) 20%),
+      color-mix(
+        in oklab,
+        var(--color-accent-active) 55%,
+        var(--color-warning) 20%,
+        var(--color-accent-soft) 25%
+      ),
+      var(--color-accent-soft)
+    );
+    box-shadow:
+      var(--shadow-sm),
+      0 0 0 1px color-mix(in oklab, var(--color-accent-active) 22%, transparent),
+      0 0 22px color-mix(in oklab, var(--color-accent-active) 28%, transparent);
     transform: translateY(1px);
   }
 
@@ -270,6 +312,20 @@
     background: var(--secondary);
     color: var(--secondary-foreground);
     border: 1px solid var(--border);
+  }
+
+  .app-button-secondary:hover {
+    border-color: color-mix(in oklab, var(--color-accent) 35%, var(--border) 65%);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--color-accent) 18%, transparent),
+      var(--shadow-xs);
+    transform: translateY(-1px);
+  }
+
+  .app-button-secondary:active {
+    border-color: color-mix(in oklab, var(--color-accent-active) 55%, var(--border) 45%);
+    transform: translateY(0);
+    box-shadow: none;
   }
 
   .app-input {
