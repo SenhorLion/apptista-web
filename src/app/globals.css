@@ -51,10 +51,24 @@
   --color-text-inverse: #0b0f14;
 
   /* Brand accent */
+  /* Electric indigo (kept for easy revert) */
+  /*
   --color-accent: #6366f1;
   --color-accent-hover: #7c7ff5;
   --color-accent-active: #4f52d6;
   --color-accent-soft: #1d2148;
+  */
+  /* Neon green (kept for easy revert) */
+  /*
+  --color-accent: #22C55E;
+  --color-accent-hover: #34D399;
+  --color-accent-active: #16A34A;
+  --color-accent-soft: #13261a;
+  */
+  --color-accent: #06B6D4;
+  --color-accent-hover: #22D3EE;
+  --color-accent-active: #0891B2;
+  --color-accent-soft: #062C33;
   --color-accent-foreground: #ffffff;
 
   /* Semantic */
