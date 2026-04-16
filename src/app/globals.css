@@ -178,6 +178,55 @@
 
   body {
     background-color: var(--background);
+    /* Subtle NuPhy-esque hexagon background (pure CSS honeycomb gradients) */
+    /* Border/outlines only (keep fill extremely subtle) */
+    --hex-size: 52px;
+    /* Use srgb for more predictable rendering across browsers */
+    /* Outline strong */
+    --hex-color: color-mix(in srgb, var(--color-accent) 22%, transparent);
+    --hex-border-color: color-mix(in srgb, var(--color-accent-hover) 90%, transparent);
+
+    background-image:
+      radial-gradient(circle farthest-side at 0% 50%, var(--hex-color) 23.5%, transparent 0)
+        calc(var(--hex-size) * 0.7) var(--hex-size),
+      radial-gradient(circle farthest-side at 0% 50%, var(--hex-border-color) 24%, transparent 0)
+        calc(var(--hex-size) * 19 / 30) var(--hex-size),
+      linear-gradient(var(--hex-color) 14%, transparent 0, transparent 85%, var(--hex-color) 0) 0 0,
+      linear-gradient(
+          150deg,
+          var(--hex-color) 24%,
+          var(--hex-border-color) 0,
+          var(--hex-border-color) 26%,
+          transparent 0,
+          transparent 74%,
+          var(--hex-border-color) 0,
+          var(--hex-border-color) 76%,
+          var(--hex-color) 0
+        )
+        0 0,
+      linear-gradient(
+          30deg,
+          var(--hex-color) 24%,
+          var(--hex-border-color) 0,
+          var(--hex-border-color) 26%,
+          transparent 0,
+          transparent 74%,
+          var(--hex-border-color) 0,
+          var(--hex-border-color) 76%,
+          var(--hex-color) 0
+        )
+        0 0,
+      linear-gradient(
+          90deg,
+          var(--hex-border-color) 2%,
+          var(--hex-color) 0,
+          var(--hex-color) 98%,
+          var(--hex-border-color) 0%
+        )
+        0 0;
+
+    background-size: calc(var(--hex-size) * 4 / 3) calc(var(--hex-size) * 2);
+    background-repeat: repeat;
     color: var(--foreground);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
