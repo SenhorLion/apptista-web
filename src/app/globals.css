@@ -70,21 +70,25 @@
 
 /* Light (default) */
 :root {
-  --color-bg-primary: #f7f6f3;
-  --color-bg-secondary: #efeeea;
-  --color-bg-tertiary: #e6e4df;
+  --color-bg-primary: #fbfaf7;
+  --color-bg-secondary: #f1eee8;
+  --color-bg-tertiary: #e7e2d8;
   --color-bg-elevated: #ffffff;
 
-  --color-border-subtle: #e8e5df;
-  --color-border: #d9d5cd;
-  --color-border-strong: #c5bfb4;
+  --color-border-subtle: #ebe5db;
+  --color-border: #ddd5c8;
+  --color-border-strong: #bfb4a2;
 
-  --color-text-primary: #0f1419;
-  --color-text-secondary: #5c6570;
-  --color-text-muted: #8a939e;
+  --color-text-primary: #0b0d10;
+  --color-text-secondary: #626c77;
+  --color-text-muted: #8c95a0;
   --color-text-inverse: #f7f6f3;
 
-  --color-accent-soft: #cffafe;
+  --color-accent-soft: #d7f7ee;
+  --color-brand-coral: #ff6b4a;
+  --color-brand-mint: #22c7a9;
+  --color-brand-sky: #35a7ff;
+  --color-brand-ink: #0b0d10;
 
   --color-success-soft: #dcfce7;
   --color-warning-soft: #fef3c7;
@@ -92,10 +96,10 @@
   --color-info-soft: #dbeafe;
 
   --shadow-xs: 0 1px 2px rgb(15 20 25 / 0.05);
-  --shadow-sm: 0 1px 3px rgb(15 20 25 / 0.08);
-  --shadow-md: 0 4px 12px rgb(15 20 25 / 0.1);
-  --shadow-lg: 0 10px 30px rgb(15 20 25 / 0.12);
-  --shadow-xl: 0 20px 50px rgb(15 20 25 / 0.14);
+  --shadow-sm: 0 1px 3px rgb(15 20 25 / 0.07);
+  --shadow-md: 0 12px 32px rgb(40 34 24 / 0.08);
+  --shadow-lg: 0 18px 50px rgb(40 34 24 / 0.1);
+  --shadow-xl: 0 28px 70px rgb(40 34 24 / 0.12);
 
   --color-surface-1: var(--color-bg-primary);
   --color-surface-2: var(--color-bg-secondary);
@@ -364,8 +368,8 @@
   }
 
   .app-eyebrow {
-    @apply text-sm font-medium tracking-[0.14em] uppercase;
-    color: var(--color-accent-active);
+    @apply text-sm font-bold tracking-[0.18em] uppercase;
+    color: var(--color-brand-sky);
   }
 
   .dark .app-eyebrow {
@@ -378,5 +382,97 @@
 
   .app-grid {
     @apply grid gap-6 md:gap-8;
+  }
+
+  .home-shell {
+    background:
+      radial-gradient(circle at 18% 24%, color-mix(in oklab, var(--color-brand-mint) 16%, transparent), transparent 22rem),
+      radial-gradient(circle at 84% 74%, color-mix(in oklab, var(--color-brand-coral) 13%, transparent), transparent 20rem),
+      linear-gradient(135deg, rgb(255 255 255 / 0.72) 0%, transparent 42%),
+      var(--background);
+    position: relative;
+  }
+
+  .home-shell::before {
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--color-brand-ink) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-brand-ink) 5%, transparent) 1px, transparent 1px);
+    background-size: 44px 44px;
+    content: '';
+    inset: 0;
+    mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
+    opacity: 0.38;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .home-shell > * {
+    position: relative;
+  }
+
+  .brand-rule {
+    background: linear-gradient(
+      90deg,
+      var(--color-brand-coral),
+      var(--color-brand-mint) 48%,
+      var(--color-brand-sky)
+    );
+    border-radius: 999px;
+    height: 0.375rem;
+    width: 8.5rem;
+  }
+
+  .app-product-card {
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.92), rgb(255 255 255 / 0.78)),
+      var(--card);
+    border: 1px solid color-mix(in oklab, var(--border) 82%, white 18%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.82),
+      0 18px 42px rgb(42 37 28 / 0.07);
+  }
+
+  .app-product-card::before {
+    background: var(--card-accent, var(--color-brand-sky));
+    content: '';
+    inset: 0 auto 0 0;
+    opacity: 0.82;
+    position: absolute;
+    width: 0.375rem;
+  }
+
+  .app-product-card:hover {
+    border-color: color-mix(in oklab, var(--card-accent, var(--color-brand-sky)) 42%, var(--border));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.9),
+      0 24px 60px rgb(42 37 28 / 0.11);
+    transform: translateY(-2px);
+  }
+
+  .app-product-card__mark {
+    background: color-mix(in oklab, var(--card-accent, var(--color-brand-sky)) 18%, white);
+    border: 1px solid color-mix(in oklab, var(--card-accent, var(--color-brand-sky)) 36%, white);
+    border-radius: 999px;
+    height: 0.625rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    width: 0.625rem;
+  }
+
+  .app-product-grid > li:nth-child(1) .app-product-card {
+    --card-accent: var(--color-brand-coral);
+  }
+
+  .app-product-grid > li:nth-child(2) .app-product-card {
+    --card-accent: var(--color-brand-mint);
+  }
+
+  .app-product-grid > li:nth-child(3) .app-product-card {
+    --card-accent: var(--color-brand-sky);
+  }
+
+  .app-product-grid > li:nth-child(4) .app-product-card {
+    --card-accent: #111827;
   }
 }
