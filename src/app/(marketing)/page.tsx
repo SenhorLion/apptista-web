@@ -19,9 +19,8 @@ const HomePage = () => {
             <span className="font-black">app</span>
             <span className="font-medium">tista</span>
           </p>
-          <p className="app-eyebrow mt-4">Apps people love to use.</p>
-          <p className="text-muted-foreground mt-5 max-w-sm text-xl leading-relaxed">
-            Clean, focused experiences that look great and do what they do well.
+          <p className="text-muted-foreground mt-3 max-w-sm text-xl leading-relaxed">
+            Small apps, beautifully made.
           </p>
         </header>
 
