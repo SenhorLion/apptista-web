@@ -2,14 +2,16 @@ export type AppProduct = {
   slug: string;
   name: string;
   tagline: string;
+  previewImage?: string;
 };
 
 /** Catalog for the marketing home grid — add or edit entries as apps ship. */
 export const apps: AppProduct[] = [
   {
     slug: 'placeholder-one',
-    name: 'App One',
-    tagline: 'A focused tool for one job, done well.',
+    name: 'Firerisk',
+    tagline: 'Local wildfire risk, mapped clearly.',
+    previewImage: '/apps/firerisk-card.png',
   },
   {
     slug: 'placeholder-two',
