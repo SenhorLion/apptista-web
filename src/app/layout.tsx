@@ -18,8 +18,11 @@ import { ReactQueryProvider } from './_providers/react-query';
 import { geist, inter, jetbrainsMono } from './fonts';
 
 export const metadata: Metadata = {
-  title: 'Apptista',
-  description: 'Apptista application ...',
+  title: {
+    default: 'Apptista',
+    template: '%s | Apptista',
+  },
+  description: 'Small apps. Immersive play.',
 };
 
 export default function RootLayout({
@@ -34,7 +37,7 @@ export default function RootLayout({
           <ThemeProvider>
             <ReactQueryProvider>
               <div className="flex h-screen border-collapse overflow-hidden">
-                <main className="bg-secondary/20 flex min-h-screen flex-1 flex-col overflow-x-hidden overflow-y-auto px-8 py-24 pl-[78px] duration-200 peer-hover:pl-[240px]">
+                <main className="bg-background text-foreground flex min-h-screen flex-1 flex-col overflow-x-hidden overflow-y-auto">
                   {children}
                 </main>
               </div>

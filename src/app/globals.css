@@ -1,17 +1,11 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/* 
+/*
   Apptista Theme
-  Dark-first, clean, technical, slightly playful.
-  Works with Tailwind v4 theme tokens.
+  Light-first, clean, technical, slightly playful.
+  Theme surfaces/text/shadows live on :root and .dark; Tailwind maps them via @theme inline.
 */
-
-/* @theme inline {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-geist);
-  --font-mono: var(--font-jetbrains-mono);
-} */
 
 @theme {
   /* Typography */
@@ -27,74 +21,24 @@
   --breakpoint-2xl: 96rem;
 
   /* Radius */
-  --radius-xs: 0.375rem; /* 6px */
-  --radius-sm: 0.5rem; /* 8px */
-  --radius-md: 0.625rem; /* 10px */
-  --radius-lg: 0.875rem; /* 14px */
-  --radius-xl: 1.25rem; /* 20px */
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
   --radius-2xl: 1.5rem;
 
-  /* Brand / surfaces */
-  --color-bg-primary: #0b0f14;
-  --color-bg-secondary: #11161d;
-  --color-bg-tertiary: #161c23;
-  --color-bg-elevated: #1b222b;
-
-  --color-border-subtle: #1a212a;
-  --color-border: #222a33;
-  --color-border-strong: #2d3742;
-
-  /* Text */
-  --color-text-primary: #e6edf3;
-  --color-text-secondary: #9da7b3;
-  --color-text-muted: #6b7785;
-  --color-text-inverse: #0b0f14;
-
-  /* Brand accent */
-  /* Electric indigo (kept for easy revert) */
-  /*
-  --color-accent: #6366f1;
-  --color-accent-hover: #7c7ff5;
-  --color-accent-active: #4f52d6;
-  --color-accent-soft: #1d2148;
-  */
-  /* Neon green (kept for easy revert) */
-  /*
-  --color-accent: #22C55E;
-  --color-accent-hover: #34D399;
-  --color-accent-active: #16A34A;
-  --color-accent-soft: #13261a;
-  */
+  /* Brand accent (shared across themes) */
   --color-accent: #06b6d4;
   --color-accent-hover: #22d3ee;
   --color-accent-active: #0891b2;
-  --color-accent-soft: #062c33;
   --color-accent-foreground: #ffffff;
 
-  /* Semantic */
+  /* Semantic status (shared hues; soft tints are theme-specific below) */
   --color-success: #22c55e;
-  --color-success-soft: #13261a;
-
   --color-warning: #f59e0b;
-  --color-warning-soft: #2b2110;
-
   --color-error: #ef4444;
-  --color-error-soft: #2d1719;
-
   --color-info: #3b82f6;
-  --color-info-soft: #13233e;
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.16);
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
-  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 30px rgb(0 0 0 / 0.4);
-  --shadow-xl: 0 20px 50px rgb(0 0 0 / 0.5);
-
-  /* Optional app-specific aliases for cleaner class names */
-  --color-surface-1: var(--color-bg-primary);
-  --color-surface-2: var(--color-bg-secondary);
-  --color-surface-3: var(--color-bg-tertiary);
 
   /* Motion */
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
@@ -124,15 +68,43 @@
   }
 }
 
-/* 
-  Semantic CSS variables for hand-written components and shadcn-style usage.
-  This gives you both Tailwind utility tokens and plain CSS variables.
-*/
+/* Light (default) */
 :root {
+  --color-bg-primary: #f7f6f3;
+  --color-bg-secondary: #efeeea;
+  --color-bg-tertiary: #e6e4df;
+  --color-bg-elevated: #ffffff;
+
+  --color-border-subtle: #e8e5df;
+  --color-border: #d9d5cd;
+  --color-border-strong: #c5bfb4;
+
+  --color-text-primary: #0f1419;
+  --color-text-secondary: #5c6570;
+  --color-text-muted: #8a939e;
+  --color-text-inverse: #f7f6f3;
+
+  --color-accent-soft: #cffafe;
+
+  --color-success-soft: #dcfce7;
+  --color-warning-soft: #fef3c7;
+  --color-error-soft: #fee2e2;
+  --color-info-soft: #dbeafe;
+
+  --shadow-xs: 0 1px 2px rgb(15 20 25 / 0.05);
+  --shadow-sm: 0 1px 3px rgb(15 20 25 / 0.08);
+  --shadow-md: 0 4px 12px rgb(15 20 25 / 0.1);
+  --shadow-lg: 0 10px 30px rgb(15 20 25 / 0.12);
+  --shadow-xl: 0 20px 50px rgb(15 20 25 / 0.14);
+
+  --color-surface-1: var(--color-bg-primary);
+  --color-surface-2: var(--color-bg-secondary);
+  --color-surface-3: var(--color-bg-tertiary);
+
   --background: var(--color-bg-primary);
   --foreground: var(--color-text-primary);
 
-  --card: var(--color-bg-secondary);
+  --card: var(--color-bg-elevated);
   --card-foreground: var(--color-text-primary);
 
   --popover: var(--color-bg-elevated);
@@ -141,7 +113,7 @@
   --primary: var(--color-accent);
   --primary-foreground: var(--color-accent-foreground);
 
-  --secondary: var(--color-bg-tertiary);
+  --secondary: var(--color-bg-secondary);
   --secondary-foreground: var(--color-text-primary);
 
   --muted: var(--color-bg-tertiary);
@@ -164,6 +136,112 @@
   --ring: var(--color-accent);
 
   --radius: 0.875rem;
+
+  color-scheme: light;
+}
+
+/* Dark */
+.dark {
+  --color-bg-primary: #0b0f14;
+  --color-bg-secondary: #11161d;
+  --color-bg-tertiary: #161c23;
+  --color-bg-elevated: #1b222b;
+
+  --color-border-subtle: #1a212a;
+  --color-border: #222a33;
+  --color-border-strong: #2d3742;
+
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #9da7b3;
+  --color-text-muted: #6b7785;
+  --color-text-inverse: #0b0f14;
+
+  --color-accent-soft: #062c33;
+
+  --color-success-soft: #13261a;
+  --color-warning-soft: #2b2110;
+  --color-error-soft: #2d1719;
+  --color-info-soft: #13233e;
+
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.16);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 30px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 50px rgb(0 0 0 / 0.5);
+
+  --card: var(--color-bg-secondary);
+  --popover: var(--color-bg-elevated);
+
+  --secondary: var(--color-bg-tertiary);
+  --muted: var(--color-bg-tertiary);
+
+  --accent-foreground: var(--color-text-primary);
+
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-accent-foreground);
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-tertiary: var(--color-bg-tertiary);
+  --color-bg-elevated: var(--color-bg-elevated);
+
+  --color-border-subtle: var(--color-border-subtle);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
+
+  --color-accent-soft: var(--color-accent-soft);
+
+  --color-success: var(--color-success);
+  --color-success-soft: var(--color-success-soft);
+  --color-warning: var(--color-warning);
+  --color-warning-soft: var(--color-warning-soft);
+  --color-error: var(--color-error);
+  --color-error-soft: var(--color-error-soft);
+  --color-info: var(--color-info);
+  --color-info-soft: var(--color-info-soft);
+
+  --color-surface-1: var(--color-surface-1);
+  --color-surface-2: var(--color-surface-2);
+  --color-surface-3: var(--color-surface-3);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
 }
 
 /* Base layer */
@@ -172,61 +250,8 @@
     border-color: var(--border);
   }
 
-  html {
-    color-scheme: dark;
-  }
-
   body {
     background-color: var(--background);
-    /* Subtle NuPhy-esque hexagon background (pure CSS honeycomb gradients) */
-    /* Border/outlines only (keep fill extremely subtle) */
-    --hex-size: 52px;
-    /* Use srgb for more predictable rendering across browsers */
-    /* Outline strong */
-    --hex-color: color-mix(in srgb, var(--color-accent) 22%, transparent);
-    --hex-border-color: color-mix(in srgb, var(--color-accent-hover) 90%, transparent);
-
-    background-image:
-      radial-gradient(circle farthest-side at 0% 50%, var(--hex-color) 23.5%, transparent 0)
-        calc(var(--hex-size) * 0.7) var(--hex-size),
-      radial-gradient(circle farthest-side at 0% 50%, var(--hex-border-color) 24%, transparent 0)
-        calc(var(--hex-size) * 19 / 30) var(--hex-size),
-      linear-gradient(var(--hex-color) 14%, transparent 0, transparent 85%, var(--hex-color) 0) 0 0,
-      linear-gradient(
-          150deg,
-          var(--hex-color) 24%,
-          var(--hex-border-color) 0,
-          var(--hex-border-color) 26%,
-          transparent 0,
-          transparent 74%,
-          var(--hex-border-color) 0,
-          var(--hex-border-color) 76%,
-          var(--hex-color) 0
-        )
-        0 0,
-      linear-gradient(
-          30deg,
-          var(--hex-color) 24%,
-          var(--hex-border-color) 0,
-          var(--hex-border-color) 26%,
-          transparent 0,
-          transparent 74%,
-          var(--hex-border-color) 0,
-          var(--hex-border-color) 76%,
-          var(--hex-color) 0
-        )
-        0 0,
-      linear-gradient(
-          90deg,
-          var(--hex-border-color) 2%,
-          var(--hex-color) 0,
-          var(--hex-color) 98%,
-          var(--hex-border-color) 0%
-        )
-        0 0;
-
-    background-size: calc(var(--hex-size) * 4 / 3) calc(var(--hex-size) * 2);
-    background-repeat: repeat;
     color: var(--foreground);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
@@ -236,7 +261,7 @@
 
   ::selection {
     background: color-mix(in oklab, var(--color-accent) 30%, transparent);
-    color: var(--color-text-primary);
+    color: var(--foreground);
   }
 
   h1,
@@ -246,6 +271,7 @@
   h5,
   h6 {
     font-family: var(--font-display);
+    color: var(--foreground);
     letter-spacing: -0.02em;
     text-wrap: balance;
   }
@@ -290,67 +316,6 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-  }
-
-  .app-button {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 font-medium whitespace-nowrap transition-all;
-    min-height: 2.5rem;
-    padding-inline: 1rem;
-    border-radius: var(--radius-md);
-    /* NuPhy Air 75 inspired: subtle tri-color gradient + gentle glow */
-    background: linear-gradient(
-      135deg,
-      color-mix(in oklab, var(--color-accent) 90%, var(--color-accent-soft) 10%),
-      color-mix(
-        in oklab,
-        var(--color-accent-hover) 60%,
-        var(--color-warning) 22%,
-        var(--color-accent-soft) 18%
-      ),
-      color-mix(in oklab, var(--color-success) 22%, var(--color-accent-soft) 78%)
-    );
-    color: var(--primary-foreground);
-    box-shadow:
-      var(--shadow-sm),
-      0 0 0 1px color-mix(in oklab, var(--color-accent) 18%, transparent),
-      0 0 28px color-mix(in oklab, var(--color-accent) 30%, transparent);
-  }
-
-  .app-button:hover {
-    background: linear-gradient(
-      135deg,
-      color-mix(in oklab, var(--color-accent-hover) 88%, var(--color-accent-soft) 12%),
-      color-mix(
-        in oklab,
-        var(--color-accent-hover) 58%,
-        var(--color-warning) 24%,
-        var(--color-accent-soft) 18%
-      ),
-      color-mix(in oklab, var(--color-success) 26%, var(--color-accent-soft) 74%)
-    );
-    box-shadow:
-      var(--shadow-sm),
-      0 0 0 1px color-mix(in oklab, var(--color-accent-hover) 22%, transparent),
-      0 0 42px color-mix(in oklab, var(--color-accent-hover) 35%, transparent);
-  }
-
-  .app-button:active {
-    background: linear-gradient(
-      135deg,
-      color-mix(in oklab, var(--color-accent-active) 80%, var(--color-accent-soft) 20%),
-      color-mix(
-        in oklab,
-        var(--color-accent-active) 55%,
-        var(--color-warning) 20%,
-        var(--color-accent-soft) 25%
-      ),
-      var(--color-accent-soft)
-    );
-    box-shadow:
-      var(--shadow-sm),
-      0 0 0 1px color-mix(in oklab, var(--color-accent-active) 22%, transparent),
-      0 0 22px color-mix(in oklab, var(--color-accent-active) 28%, transparent);
-    transform: translateY(1px);
   }
 
   .app-button-secondary {
@@ -400,6 +365,10 @@
 
   .app-eyebrow {
     @apply text-sm font-medium tracking-[0.14em] uppercase;
+    color: var(--color-accent-active);
+  }
+
+  .dark .app-eyebrow {
     color: var(--color-accent-hover);
   }
 

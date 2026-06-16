@@ -1,4 +1,5 @@
 export const homePath = () => '/';
+export const appPath = (slug: string) => `/apps/${slug}`;
 export const lessonsPath = () => '/';
 export const lessonsPathForOrganization = (organizationId: string) =>
   `/?organizationId=${organizationId}`;
