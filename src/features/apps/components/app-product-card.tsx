@@ -14,11 +14,13 @@ export function AppProductCard({ app }: AppProductCardProps) {
       } as CSSProperties)
     : undefined;
 
+  const link = app.link || appPath(app.slug);
+
   return (
     <Link
-      href={appPath(app.slug)}
+      href={link}
       className={`app-product-card group focus-visible:ring-ring relative block min-h-40 overflow-hidden rounded-lg p-6 transition-all focus-visible:ring-[3px] focus-visible:outline-none${
-        app.previewImage ? ' app-product-card--image' : ''
+        app.previewImage ? 'app-product-card--image' : ''
       }`}
       style={cardStyle}
     >
