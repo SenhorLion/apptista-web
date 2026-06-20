@@ -20,7 +20,7 @@ export function AppProductCard({ app }: AppProductCardProps) {
     <Link
       href={link}
       className={`app-product-card group focus-visible:ring-ring relative block min-h-40 overflow-hidden rounded-lg p-6 transition-all focus-visible:ring-[3px] focus-visible:outline-none${
-        app.previewImage ? 'app-product-card--image' : ''
+        app.previewImage ? ' app-product-card--image' : ''
       }`}
       style={cardStyle}
     >
@@ -31,7 +31,8 @@ export function AppProductCard({ app }: AppProductCardProps) {
       <p className="text-muted-foreground relative z-10 mt-3 text-base leading-relaxed">
         {app.tagline}
       </p>
-      <span className="text-foreground relative z-10 mt-6 inline-flex text-sm font-semibold opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+      <span className="app-product-card__cta text-foreground relative z-10 mt-6 inline-flex text-sm font-semibold">
+        <span aria-hidden="true">→</span>
         View app
       </span>
     </Link>
