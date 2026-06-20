@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
+import { Badge } from '@/components/ui/badge';
 import { appPath } from '@/paths';
 import type { AppProduct } from '../apps';
 
@@ -14,26 +15,39 @@ export function AppProductCard({ app }: AppProductCardProps) {
       } as CSSProperties)
     : undefined;
 
-  const link = app.link || appPath(app.slug);
+  const isExternalLink = !app.comingSoon && Boolean(app.link);
+  const link = isExternalLink ? app.link! : appPath(app.slug);
 
   return (
     <Link
       href={link}
+      target={isExternalLink ? '_blank' : undefined}
+      rel={isExternalLink ? 'noopener noreferrer' : undefined}
       className={`app-product-card group focus-visible:ring-ring relative block min-h-40 overflow-hidden rounded-lg p-6 transition-all focus-visible:ring-[3px] focus-visible:outline-none${
         app.previewImage ? ' app-product-card--image' : ''
       }`}
       style={cardStyle}
     >
       {/* <span className="app-product-card__mark" aria-hidden="true" /> */}
-      <h3 className="text-foreground font-display relative z-10 text-xl font-bold tracking-normal">
-        {app.name}
-      </h3>
+      <div className="relative z-10 flex flex-wrap items-center gap-2">
+        <h3 className="text-foreground font-display text-xl font-bold tracking-normal">
+          {app.name}
+        </h3>
+        {app.comingSoon ? <Badge variant="secondary">Coming soon</Badge> : null}
+      </div>
       <p className="text-muted-foreground relative z-10 mt-3 text-base leading-relaxed">
         {app.tagline}
       </p>
       <span className="app-product-card__cta text-foreground relative z-10 mt-6 inline-flex text-sm font-semibold">
-        <span aria-hidden="true">→</span>
-        View app
+        {app.comingSoon ? (
+          'Learn more'
+        ) : (
+          <>
+            <span aria-hidden="true">→</span>
+            View app
+            {isExternalLink ? <span className="sr-only"> (opens in new tab)</span> : null}
+          </>
+        )}
       </span>
     </Link>
   );

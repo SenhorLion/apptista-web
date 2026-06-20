@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { apps, getAppBySlug } from '@/features/apps/apps';
 import { homePath } from '@/paths';
@@ -39,10 +40,16 @@ export default async function AppPage({ params }: AppPageProps) {
     <section className="flex flex-1 flex-col justify-center py-12 md:py-16">
       <div className="app-container max-w-2xl">
         <p className="app-eyebrow">{app.name}</p>
-        <h1 className="mt-4">{app.tagline}</h1>
-        <p className="text-muted-foreground mt-4 text-lg">
-          App page content goes here — replace this placeholder when the product is ready.
-        </p>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <h1>{app.tagline}</h1>
+          {app.comingSoon ? <Badge variant="secondary">Coming soon</Badge> : null}
+        </div>
+        <p className="text-muted-foreground mt-4 text-lg">{app.description}</p>
+        {app.comingSoon ? (
+          <p className="text-muted-foreground mt-4 text-base">
+            This app is not available yet — check back soon.
+          </p>
+        ) : null}
         <div className="mt-8">
           <Button variant="outline" asChild>
             <Link href={homePath()}>← Back to Apptista</Link>
