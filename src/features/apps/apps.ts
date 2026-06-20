@@ -27,7 +27,7 @@ export const apps: AppProduct[] = [
     description:
       'HopDraft helps home brewers sketch beer recipes fast. Pick your style, adjust hops and malts, and get a workable recipe in seconds — no spreadsheet required.',
     beta: true,
-    link: 'https://hopdraft-kl42ljw0b-lions-projects-b0515136.vercel.app/',
+    link: 'https://hopdraft.vercel.app/',
   },
   {
     slug: 'receipt-tracker-app',
