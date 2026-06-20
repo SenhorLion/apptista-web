@@ -11,7 +11,7 @@ export const apps: AppProduct[] = [
   {
     slug: 'placeholder-one',
     name: 'Firerisk',
-    tagline: 'Local wildfire risk, mapped clearly.',
+    tagline: 'Portugal Local wildfire risk, mapped clearly.',
     previewImage: '/apps/firerisk-card.png',
     link: 'https://www.firerisk.pt/en/map',
   },
@@ -19,6 +19,7 @@ export const apps: AppProduct[] = [
     slug: 'placeholder-two',
     name: 'HopDraft',
     tagline: 'Beer recipes in under 10 seconds',
+    link: 'https://hopdraft-kl42ljw0b-lions-projects-b0515136.vercel.app/',
   },
   {
     slug: 'placeholder-three',
