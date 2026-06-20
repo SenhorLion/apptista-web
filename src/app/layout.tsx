@@ -9,10 +9,10 @@ import { geist, inter, jetbrainsMono } from './fonts';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Apptista',
+    default: 'Apptista | Small apps, beautifully made.',
     template: '%s | Apptista',
   },
-  description: 'Small apps. Immersive play.',
+  description: 'Small apps, beautifully made.',
 };
 
 export default function RootLayout({

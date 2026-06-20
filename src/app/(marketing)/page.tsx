@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { AppProductGrid } from '@/features/apps/components/app-product-grid';
 
 export const metadata: Metadata = {
-  title: 'Apptista',
   description: 'Small apps. Immersive play. Clean, focused experiences people love to use.',
 };
 
