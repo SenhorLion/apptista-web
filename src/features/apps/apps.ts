@@ -4,6 +4,7 @@ export type AppProduct = {
   tagline: string;
   description: string;
   comingSoon?: boolean;
+  beta?: boolean;
   previewImage?: string;
   link?: string;
 };
@@ -25,6 +26,7 @@ export const apps: AppProduct[] = [
     tagline: 'Beer recipes in under 10 seconds',
     description:
       'HopDraft helps home brewers sketch beer recipes fast. Pick your style, adjust hops and malts, and get a workable recipe in seconds — no spreadsheet required.',
+    beta: true,
     link: 'https://hopdraft-kl42ljw0b-lions-projects-b0515136.vercel.app/',
   },
   {

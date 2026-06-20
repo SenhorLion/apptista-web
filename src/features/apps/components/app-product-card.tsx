@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
-import { Badge } from '@/components/ui/badge';
 import { appPath } from '@/paths';
 import type { AppProduct } from '../apps';
+import { AppStatusBadges } from './app-status-badges';
 
 type AppProductCardProps = {
   app: AppProduct;
@@ -33,7 +33,7 @@ export function AppProductCard({ app }: AppProductCardProps) {
         <h3 className="text-foreground font-display text-xl font-bold tracking-normal">
           {app.name}
         </h3>
-        {app.comingSoon ? <Badge variant="secondary">Coming soon</Badge> : null}
+        <AppStatusBadges app={app} />
       </div>
       <p className="text-muted-foreground relative z-10 mt-3 text-base leading-relaxed">
         {app.tagline}

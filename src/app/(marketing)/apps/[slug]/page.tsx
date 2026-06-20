@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { apps, getAppBySlug } from '@/features/apps/apps';
+import { AppStatusBadges } from '@/features/apps/components/app-status-badges';
 import { homePath } from '@/paths';
 
 type AppPageProps = {
@@ -42,12 +42,17 @@ export default async function AppPage({ params }: AppPageProps) {
         <p className="app-eyebrow">{app.name}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <h1>{app.tagline}</h1>
-          {app.comingSoon ? <Badge variant="secondary">Coming soon</Badge> : null}
+          <AppStatusBadges app={app} />
         </div>
         <p className="text-muted-foreground mt-4 text-lg">{app.description}</p>
         {app.comingSoon ? (
           <p className="text-muted-foreground mt-4 text-base">
             This app is not available yet — check back soon.
+          </p>
+        ) : null}
+        {app.beta ? (
+          <p className="text-muted-foreground mt-4 text-base">
+            This app is in beta — features may change while testing continues.
           </p>
         ) : null}
         <div className="mt-8">
